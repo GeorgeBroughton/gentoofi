@@ -11,5 +11,5 @@ unmount_and_wipe() {
   wipefs -a "$dev"
 }
 
-source ./partitioning-data.sh
-source ./partitioning-cache.sh
+source "${BASH_SOURCE%/*}/partitioning-data.sh"
+source "${BASH_SOURCE%/*}/partitioning-cache.sh"
