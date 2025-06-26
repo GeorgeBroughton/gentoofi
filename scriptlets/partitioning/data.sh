@@ -58,10 +58,12 @@ mount ${CHOICES%%$'\n'*} /mnt/gentoo
 btrfs subvolume create /mnt/gentoo/@root
 btrfs subvolume create /mnt/gentoo/@home
 btrfs subvolume create /mnt/gentoo/@containers
+btrfs subvolume create /mnt/gentoo/@libvirt
 umount /mnt/gentoo
 
 # Mount with compression
-mount -o compress=zstd,subvol=@root ${CHOICES%%$'\n'*} /mnt/gentoo
-mkdir -p /mnt/gentoo/home /mnt/gentoo/var/lib/containers
-mount -o compress=zstd,subvol=@home ${CHOICES%%$'\n'*} /mnt/gentoo/home
+mount -o compress=zstd,subvol=@root       ${CHOICES%%$'\n'*} /mnt/gentoo
+mkdir -p /mnt/gentoo/home /mnt/gentoo/var/lib/containers /mnt/gentoo/var/lib/libvirt
+mount -o compress=zstd,subvol=@home       ${CHOICES%%$'\n'*} /mnt/gentoo/home
 mount -o compress=zstd,subvol=@containers ${CHOICES%%$'\n'*} /mnt/gentoo/var/lib/containers
+mount -o compress=zstd,subvol=@libvirt    ${CHOICES%%$'\n'*} /mnt/gentoo/var/lib/libvirt
