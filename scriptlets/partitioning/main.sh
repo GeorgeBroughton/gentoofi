@@ -11,5 +11,7 @@ unmount_and_wipe() {
   wipefs -a "$dev"
 }
 
-source "${BASH_SOURCE%/*}/partitioning/data.sh"
-source "${BASH_SOURCE%/*}/partitioning/cache.sh"
+echo "BASH_SOURCE=${BASH_SOURCE%/*}"
+
+source "${BASH_SOURCE%/*}/data.sh"
+source "${BASH_SOURCE%/*}/cache.sh"

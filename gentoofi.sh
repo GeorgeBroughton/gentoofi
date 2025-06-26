@@ -5,6 +5,8 @@ if [ $? -ne 0 ]; then
   exit 1
 fi
 
+echo "BASH_SOURCE=${BASH_SOURCE%/*}"
+
 source "${BASH_SOURCE%/*}/scriptlets/partitioning/main.sh"
 
 # source ./scriptlets/
