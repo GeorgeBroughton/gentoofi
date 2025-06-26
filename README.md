@@ -48,5 +48,5 @@ It will:
 For those who want to try anyway, you can run this in the live CD:
 
 ```sh
-git clone https://github.com/GeorgeBroughton/gentoofi.git ; cd ./gentoofi ; chmod -Rv +x ./ ; sudo ./gentoofi.sh
+git clone https://github.com/GeorgeBroughton/gentoofi.git && cd ./gentoofi && chmod -Rv +x ./ && sudo ./gentoofi.sh
 ```
