@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # Detect fast disks (e.g. NVMe)
 mapfile -t FAST_DISKS < <(lsblk -dpno NAME,TYPE | grep 'disk' | grep -E 'nvme|ssd' | awk '{print $1}')
 

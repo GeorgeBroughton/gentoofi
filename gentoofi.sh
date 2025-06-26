@@ -1,3 +1,5 @@
+#!/bin/bash
+
 dialog --yesno "Right now, this installer will only partition disks for you.\n\nProceed?" 10 50
 if [ $? -ne 0 ]; then
   clear

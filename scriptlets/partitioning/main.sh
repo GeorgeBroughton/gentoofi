@@ -1,3 +1,5 @@
+#!/bin/bash
+
 unmount_and_wipe() {
   local dev=$1
 

@@ -51,7 +51,7 @@ for disk in $CHOICES; do
 done
 
 # Format disks and mount
-mkfs.btrfs -f -L GENTOO_DISK $CHOICES
+mkfs.btrfs -f -L GENTOO_DATA $CHOICES
 mount ${CHOICES%%$'\n'*} /mnt/gentoo
 
 # Subvolumes
