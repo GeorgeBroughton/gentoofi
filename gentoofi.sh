@@ -1,5 +1,13 @@
 #!/bin/bash
 
+set -euo pipefail
+
+# Check for dialog
+if ! command -v dialog &>/dev/null; then
+  echo "Installing 'dialog'..."
+  emerge --ask --noreplace dialog || exit 1
+fi
+
 dialog --yesno "Right now, this installer will only partition disks for you.\n\nProceed?" 10 50
 if [ $? -ne 0 ]; then
   clear

@@ -1,13 +1,5 @@
 #!/bin/bash
 
-set -euo pipefail
-
-# Check for dialog
-if ! command -v dialog &>/dev/null; then
-  echo "Installing 'dialog'..."
-  emerge --ask --noreplace dialog || exit 1
-fi
-
 # Detect block devices (excluding loopback and optical)
 mapfile -t BLOCKS < <(lsblk -dpno NAME,TYPE | grep 'disk' | awk '{print $1}')
 if [ ${#BLOCKS[@]} -eq 0 ]; then
@@ -64,6 +56,7 @@ umount /mnt/gentoo
 # Mount with compression
 mount -o compress=zstd,subvol=@root       ${CHOICES%%$'\n'*} /mnt/gentoo
 mkdir -p /mnt/gentoo/home /mnt/gentoo/var/lib/containers /mnt/gentoo/var/lib/libvirt
+
 mount -o compress=zstd,subvol=@home       ${CHOICES%%$'\n'*} /mnt/gentoo/home
 mount -o compress=zstd,subvol=@containers ${CHOICES%%$'\n'*} /mnt/gentoo/var/lib/containers
 mount -o compress=zstd,subvol=@libvirt    ${CHOICES%%$'\n'*} /mnt/gentoo/var/lib/libvirt
