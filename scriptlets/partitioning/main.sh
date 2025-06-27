@@ -6,7 +6,7 @@ unmount_and_wipe() {
 
   echo "Unmounting any mounted partitions on $dev..."
   for mountpoint in ${mountpoints[@]}; do
-    umount -Rv $mountpoint
+    echo $mountpoint
   done
 
   echo "Disabling swap on $dev if active..."
