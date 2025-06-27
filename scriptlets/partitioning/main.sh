@@ -2,7 +2,7 @@
 
 unmount_and_wipe() {
   local dev=$1
-  local mountpoints < <(mount | grep "$dev" | awk '{print $3}')
+  local mountpoints = (mount | grep "$dev" | awk '{print $3}')
 
   echo "${mountpoints[@]} ${mountpoints[@]} ${mountpoints[@]} ${mountpoints[@]} ${mountpoints[@]} ${mountpoints[@]} ${mountpoints[@]} ${mountpoints[@]} "
 
