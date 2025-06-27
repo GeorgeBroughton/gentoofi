@@ -36,10 +36,12 @@ if [ ${#FAST_DISKS[@]} -gt 0 ]; then
   make-bcache -B /dev/btrfs_backing_device -C "$CACHE_DEV"
 
 else
+
   dialog --yesno "No fast storage was found.\n\nContinue?" 10 50
   if [ $? -ne 0 ]; then
     clear
     echo "Aborted by user."
     exit 1
   fi
+  
 fi
