@@ -4,6 +4,8 @@ unmount_and_wipe() {
   local dev=$1
   local mountpoints < <(mount | grep "$dev" | awk '{print $3}')
 
+  echo "$dev $dev $dev $dev $dev $dev $dev $dev $dev"
+
   echo "Unmounting any mounted partitions on $dev..."
   for mountpoint in ${mountpoints[@]}; do
     echo $mountpoint

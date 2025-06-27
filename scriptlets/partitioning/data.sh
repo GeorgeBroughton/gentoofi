@@ -38,7 +38,6 @@ if [ $? -ne 0 ]; then
 fi
 
 for disk in $CHOICES; do
-  echo "Erasing $disk..."
   unmount_and_wipe $disk
 done
 
