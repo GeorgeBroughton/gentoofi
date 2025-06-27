@@ -8,7 +8,7 @@ unmount_and_wipe() {
   echo "${mountpoints[@]} ${mountpoints[@]} ${mountpoints[@]} ${mountpoints[@]} ${mountpoints[@]} ${mountpoints[@]} ${mountpoints[@]} ${mountpoints[@]} "
 
   echo "Unmounting any mounted partitions on $dev..."
-  for mountpoint in ${mountpoints[@]}; do
+  for mountpoint in "${mountpoints[@]}"; do
     echo $mountpoint
   done
 
